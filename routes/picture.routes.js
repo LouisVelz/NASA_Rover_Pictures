@@ -6,8 +6,13 @@ module.exports = router;
 
 /* All posts */
 router.get("/", async (req, res) => {
+  // if there are not params in the call, initialize the values to the default values
+  let rover = req.query.rover || "curiosity";
+  let camera = req.query.camera || "NAVCAM";
+  let pictures = req.query.numberOfPictures || 3;
+  //get the picture from the getPictures model
   await picture
-    .getPictures()
+    .getPictures(rover, camera, pictures)
     .then((pictures) => {
       return res.json(pictures);
     })
@@ -19,3 +24,5 @@ router.get("/", async (req, res) => {
       }
     });
 });
+
+// More routes can be added like get by date or delete date.

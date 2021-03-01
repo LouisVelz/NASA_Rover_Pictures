@@ -1,12 +1,8 @@
 var assert = require("assert");
 const helpers = require("./../helpers/newHelper");
-
+//basic test for helper methods.
 describe("getDateFomatted", function () {
   it("should receive a string in the form YYYY-M-D or Date and return a string in the form YYYY-M-D", function () {
-    // assert.equal(
-    //   helpers.getDateFormatted("2021-03-01T18:05:31.955Z"),
-    //   "2021-3-1"
-    // );
     assert.equal(helpers.getDateFormatted("2018-2-1"), "2018-2-1");
   });
 });
