@@ -1,7 +1,13 @@
-Make sure you have Node and NPM installed both with `node -v && npm -v`.  
-Install packages with `npm install`.  
-Run server with `npm run dev` for using **Nodemon**.
+NASA Rover Pictures is an API that works with the NASA open API Mars Rover Photos. NASA Rover pictures returns three pictures per day from the last ten days as JSON. After obtaining the data, it caches the data to a JSON file for reuse.
 
-If you use a Node version ≤ 8.2.1, you will need to add the " - harmony" flag for using spread operator in the package.json file.
+## Technologies
 
-`"dev": "node_modules/.bin/nodemon --harmony -e js",`
+- Express
+- NodeJS
+- JSON
+- Axios
+
+## API
+
+- [NASA Mars Rover Photos](https://api.nasa.gov/)
+
