@@ -4,10 +4,11 @@ let pictures = require("./../data/pictures.json");
 const filename = "./data/pictures.json";
 
 function getDateFormatted(date) {
-  let year = date.getFullYear();
-  let month = (date.getMonth() + 1) % 12;
-  let day = date.getDate();
+  date = new Date(date);
 
+  let year = date.getFullYear();
+  let month = date.getMonth() + 1;
+  let day = date.getDate();
   return year + "-" + month + "-" + day;
 }
 
@@ -27,9 +28,10 @@ const getDaysPictures = async (date, rover, camera, numOfPictures) => {
 };
 
 function getDaysBefore(date, daysBefore) {
-  let previousDay = new Date();
+  let previousDay = new Date(date);
   previousDay.setDate(date.getDate() - daysBefore);
-  return getDateFormatted(previousDay);
+  date = getDateFormatted(previousDay);
+  return date;
 }
 
 function getPreviousTenDays() {
@@ -52,4 +54,6 @@ function writeJSONFile(filename, content) {
 module.exports = {
   getPreviousTenDays,
   getDaysPictures,
+  getDateFormatted,
+  getDaysBefore,
 };

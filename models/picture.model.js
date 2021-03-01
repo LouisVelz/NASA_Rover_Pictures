@@ -1,7 +1,6 @@
 let pictures = require("../data/pictures.json");
 const filename = "./data/pictures.json";
 const helper = require("../helpers/newHelper");
-// const axios = require("axios");
 
 function getPictures(
   rover = "curiosity",
@@ -15,7 +14,7 @@ function getPictures(
 
     for (let i = 0; i < 10; i++) {
       date = lastTenDays[i];
-      if (date in pictures) {
+      if (date in pictures && pictures[date].length !== 0) {
         picturesFromTenDays[date] = pictures[date];
       } else {
         picturesFromTenDays[date] = await helper.getDaysPictures(
